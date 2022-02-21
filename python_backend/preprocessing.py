@@ -17,10 +17,10 @@ def processedImagef():
     imgrequest = request.json # json request
     imgbase64 = imgrequest['imgstr'] # image in base 64
     inputImg = base64.b64decode(imgbase64)
-    with open("python_backend/InputImage.png", "wb") as fh:
+    with open("InputImage.png", "wb") as fh:
         fh.write(inputImg)
 
-    img = cv2.imread("python_backend/InputImage.png",0)
+    img = cv2.imread("InputImage.png",0)
 
 
     #preprocessing Code
@@ -36,11 +36,11 @@ def processedImagef():
 
     processedImage = thin
 
-    cv2.imwrite("python_backend/OutputImage.png", processedImage)
+    cv2.imwrite("OutputImage.png", processedImage)
 
     processed64 = ""
 
-    with open('python_backend/OutputImage.png', 'rb') as imagefile:
+    with open('OutputImage.png', 'rb') as imagefile:
         processed64 = str(base64.b64encode(imagefile.read()))
 
     encoded = processed64[2:-1]
